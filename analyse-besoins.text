@@ -1,0 +1,47 @@
+### Acteurs et besoins fonctionnels et non fonctionnels
+
+## Acteurs principaux:
+1.	Client :
+o	Peut consulter les offres disponibles (vols, hôtels, circuits touristiques, etc.).
+o	Peut effectuer une réservation en ligne pour une activité ou un voyage.
+o	Peut personnaliser son voyage en sélectionnant des options spécifiques (excursions, services additionnels, etc.).
+
+ 2.	Système :
+  o	Peut gérer l'inscription et la gestion des profils clients.
+  o	Peut afficher dynamiquement les offres basées sur les données de la base de données.
+  o	Peut valider les réservations et prévenir les doublons ou conflits.
+  o	Peut gérer les options de personnalisation pour les voyages.
+
+## Besoins fonctionnels
+1.	Gestion des profils clients : création, modification et suppression des comptes.
+2.	Consultation dynamique des offres disponibles avec options de filtrage.
+3.	Réservation sécurisée avec confirmation instantanée.
+4.	Personnalisation des voyages avec gestion des préférences.
+
+## besoins non fonctionnels
+1.	Interface utilisateur intuitive et responsive .
+2.	Système sécurisé pour protéger les informations des clients et les transactions.
+3.	Performances optimisées pour un affichage rapide des offres et la gestion des réservations.
+4.	Fiabilité du système pour prévenir les erreurs de données et les pannes.
+5.	Accessibilité conforme aux normes pour tous les utilisateurs.
+
+### Scénario d'utilisation 
+
+Titre : Réserver un circuit touristique personnalisé
+
+1.	Étape 1 : Consultation des offres
+Le client visite le site et consulte les offres disponibles. Il utilise des filtres pour afficher uniquement les circuits touristiques correspondant à ses préférences (par exemple, circuits en Europe et pour une durée de 7 jours).
+
+2.	Étape 2 : Sélection d’une offre
+Le client choisit un circuit qui l’intéresse. La page détaille le circuit avec des informations comme l’itinéraire, les prix, et les options disponibles.
+
+3.	Étape 3 : Personnalisation du circuit
+Avant de réserver, le client personnalise son circuit :
+o	Ajoute une excursion optionnelle (visite d'un musée local).
+o	Choisit des services additionnels comme un guide privé et des repas inclus.
+
+4.	Étape 4 : Réservation et paiement
+Le client se connecte à son compte ou crée un nouveau compte. Il procède ensuite à la réservation en fournissant les informations nécessaires (noms, dates, nombre de participants) et effectue un paiement sécurisé.
+
+5.	Étape 5 : Confirmation et suivi
+Le système valide la réservation, génère un récapitulatif (facture et détails du circuit) et envoie une confirmation par e-mail. Le client peut consulter ou modifier ses réservations via son espace personnel.
