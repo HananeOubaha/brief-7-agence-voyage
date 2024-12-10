@@ -45,7 +45,17 @@ FOREIGN KEY (id_activite)REFERENCES
 activite(id_activite);
 
 -- insertion 
+ INSERT INTO client (nom , prenom , email , telephone , adresse , date_naissance)
+ VALUES ('Hanane','Oubaha','hanane@gmail.com','0632114578','168 BD SAFAA','2002-10-31')
 
+ INSERT INTO activite(titre,description,destination,prix,date_debut,date_fin,places_disponibles)
+  VALUES ('surf','sortie au plage pour surf','Taghazout','200','2024-12-10','2024-12_11','10');
+
+INSERT INTO activite(titre,description,destination,prix,date_debut,date_fin,places_disponibles)
+ VALUES ('karting','organisation  compétition de karting','AGADIR BEY','250','2024-12-15','2024-12_11','16');
+
+INSERT INTO reservation (titre , descrition , destination , prix , date_debut,date_fin , places_disponibles) 
+VALUES ('surf','sortie au plage pour surf','200,0','2024-12-10','2024-12-11','10')
 
 
 
