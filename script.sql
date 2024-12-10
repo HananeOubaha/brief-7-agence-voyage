@@ -28,5 +28,26 @@ CREATE TABLE reservation(
        date_fin DATE ,
        places_disponibles INT(11)
 );
+-- on ajoute les liaisons entre les tableaux : reservation lié avec client et activite 
+ALTER TABLE reservation ;
+ADD id_client INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE reservation 
+ADD CONSTRAINT FK_client_reservation
+FOREIGN KEY (id_client)REFERENCES
+client(id_client);
+
+ALTER TABLE reservation 
+ADD id_activite INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE reservation 
+ADD CONSTRAINT FK_activite_reservation
+FOREIGN KEY (id_activite)REFERENCES
+activite(id_activite);
+
+-- insertion 
+
+
+
+
 
 
