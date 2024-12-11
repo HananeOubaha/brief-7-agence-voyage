@@ -31,7 +31,7 @@ CREATE TABLE reservation (
     id_client INT NOT NULL,
     id_activite INT NOT NULL,
     date_reservation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    statut ENUM('En attente', 'Confirmée', 'Annulée'),
+    statut ENUM('En attente', 'Confirmee', 'Annulee'),
     FOREIGN KEY (id_client) REFERENCES client(id_client)  ON DELETE CASCADE,
     FOREIGN KEY (id_activite) REFERENCES activite(id_activite) ON DELETE CASCADE
 );
@@ -49,13 +49,13 @@ VALUES
 INSERT INTO activite (titre, description, destination, prix, date_debut, date_fin, places_disponibles)
 VALUES 
     ('surf', 'sortie au plage pour surf', 'Taghazout', 200, '2024-12-10', '2024-12-11', 10),
-    ('karting', 'organisation compétition de karting', 'AGADIR BEY', 250, '2024-12-15', '2024-12-16', 16);
-    ('cooking', 'organisation compétition de cuisine', 'kitchen', 100, '2024-12-16', '2024-12-18', 20);
+    ('karting', 'organisation competition de karting', 'AGADIR BEY', 250, '2024-12-15', '2024-12-16', 16);
+    ('cooking', 'organisation competition de cuisine', 'kitchen', 100, '2024-12-16', '2024-12-18', 20);
 
 -- Insertion des données dans le tableau reservation
 INSERT INTO reservation (id_client, id_activite, date_reservation, statut)
 VALUES 
-    (1, 1, '2024-12-10 10:00:00', 'Confirmée'),
+    (1, 1, '2024-12-10 10:00:00', 'Confirmee'),
     (2, 2, '2024-12-15 14:00:00', 'En attente');
     (3, 3, '2024-12-15 15:00:00', 'En attente'); 
 -- Suppression d'une réservation
@@ -89,3 +89,32 @@ SET
     date_fin = '2024-12-21',
     places_disponibles = 21
 WHERE id_activite = 1;
+
+-- ajout des columns dans les tableaux
+    ALTER TABLE client 
+    ADD COLUMN type_client ENUM('Standard', 'Premium', 'VIP');
+
+    ALTER TABLE activite 
+    ADD COLUMN complexite ENUM('Facile', 'Moyenne', 'Difficile');
+
+    ALTER TABLE reservation 
+    ADD COLUMN mode_paiement ENUM('Carte bancaire', 'Espèces', 'Chèque') ;
+
+-- Requête de jointure
+SELECT 
+    client.nom AS Nom_Client,
+    client.prenom AS Prenom_Client,
+    activite.titre AS Activite,
+    activite.description AS Description_Activite,
+    activite.destination AS Destination,
+    activite.prix AS Prix,
+    reservation.date_reservation AS Date_Reservation,
+    reservation.statut AS Statut_Reservation
+FROM 
+    reservation
+INNER JOIN 
+    client ON reservation.id_client = client.id_client
+INNER JOIN 
+    activite ON reservation.id_activite = activite.id_activite
+WHERE 
+    client.id_client = 1; 
