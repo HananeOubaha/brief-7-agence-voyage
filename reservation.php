@@ -8,7 +8,7 @@ $result_clients = $conn->query($sql_clients);
 $sql_activites = "SELECT id_activite, titre FROM activite";
 $result_activites = $conn->query($sql_activites);
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="fr">
 <head>

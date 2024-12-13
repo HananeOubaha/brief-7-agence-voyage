@@ -10,12 +10,15 @@ $mode_paiement = $_POST['paiement'];
 
 // Insertion dans la table reservation
 $sql = "INSERT INTO reservation (id_client, id_activite, date_reservation, statut, mode_paiement) 
-        VALUES ('$id_client', '$id_activite', '$date_reservation','$statut', '$mode_paiement')";
-if ($conn->query($sql) === TRUE) {
+        VALUES ('$id_client', '$id_activite', '$date_reservation', '$statut', '$mode_paiement')";
+
+// Exécution de la requête
+if (mysqli_query($conn, $sql)) {
     echo "Réservation ajoutée avec succès.";
 } else {
-    echo "Erreur : " . $conn->error;
+    echo "Erreur : " . mysqli_error($conn);
 }
 
-$conn->close();
+// Fermeture de la connexion
+mysqli_close($conn);
 ?>

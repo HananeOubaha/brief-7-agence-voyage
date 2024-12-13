@@ -1,29 +1,28 @@
-<?php
-include('db.php');
- 
+<?php  
+include('db.php'); 
+
 // Vérifier si le formulaire est soumis
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer et valider les données
-    $titre = $conn->real_escape_string($_POST['titre']);
-    $description = $conn->real_escape_string($_POST['description']);
-    $destination = $conn->real_escape_string($_POST['destination']);
-    $prix = (float)$_POST['prix'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Récupérer les données envoyées par le formulaire
+    $titre = $_POST['titre'];
+    $description = $_POST['description'];
+    $destination = $_POST['destination'];
+    $prix = $_POST['prix']; 
     $date_debut = $_POST['date_debut'];
     $date_fin = $_POST['date_fin'];
-    $places_disponibles = (int)$_POST['places_disponibles'];
+    $places_disponibles = $_POST['places_disponibles']; 
 
-    // Insertion des données
     $sql = "INSERT INTO activite (titre, description, destination, prix, date_debut, date_fin, places_disponibles) 
             VALUES ('$titre', '$description', '$destination', $prix, '$date_debut', '$date_fin', $places_disponibles)";
 
-    if ($conn->query($sql) === TRUE) {
+    if (mysqli_query($conn, $sql)) {
         echo "Données enregistrées avec succès !";
     } else {
-        echo "Erreur : " . $conn->error;
+        echo "Erreur : " . mysqli_error($conn);
     }
 
-    // Fermer la connexion
-    $conn->close();
+    // Fermer la connexion à la base de données
+    mysqli_close($conn);
 } else {
     echo "Méthode non autorisée.";
 }
