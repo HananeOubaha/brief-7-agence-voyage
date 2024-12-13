@@ -9,13 +9,13 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
   <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
     <h1 class="text-2xl font-bold text-gray-700 text-center mb-6">Créer une activité</h1>
-    <form action="/ajouter-activite" method="POST" class="space-y-4">
+    <form action="activiteformule.php" method="POST" class="space-y-4">
       
       <!-- Champ Titre -->
       <div>
         <label for="titre" class="block text-gray-600 font-medium">Titre</label>
         <input 
-          type="text" 
+          type="text"  
           id="titre" 
           name="titre" 
           class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" 
@@ -103,7 +103,6 @@
           Ajouter l'activité
         </button>
       </div>
-      
     </form>
   </div>
 </body>

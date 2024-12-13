@@ -1,82 +1,91 @@
+<?php
+include('db.php');
+// Récupération des clients
+$sql_clients = "SELECT id_client, CONCAT(nom, ' ', prenom) AS nom_complet FROM client";
+$result_clients = $conn->query($sql_clients);
+ 
+// Récupération des activités
+$sql_activites = "SELECT id_activite, titre FROM activite";
+$result_activites = $conn->query($sql_activites);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulaire de réservation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Réservation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-    <h1 class="text-2xl font-bold text-gray-700 text-center mb-6">Créer une réservation</h1>
-    <form action="/ajouter-reservation" method="POST" class="space-y-4">
-      
-      <!-- Sélection du client -->
-      <div>
-        <label for="client_id" class="block text-gray-600 font-medium">Nom du client</label>
-        <select 
-          id="client_id" 
-          name="client_id" 
-          class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          required>
-          <option value="" disabled selected>Choisissez un client</option>
-          <option value="1">Client 1</option>
-          <option value="2">Client 2</option>
-          <option value="3">Client 3</option>
-        </select>
-      </div>
+<body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Mise à jour du formulaire</h1>
+        <form action="reservationformule.php" method="POST" class="space-y-6">
+            <!-- Sélection du client -->
+            <div>
+                <label for="client" class="block text-sm font-medium text-gray-700">Nom du client :</label>
+                <select name="client" id="client" required class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Sélectionnez un client</option>
+                    <?php
+                    if ($result_clients->num_rows > 0) {
+                        while ($row = $result_clients->fetch_assoc()) {
+                            echo "<option value='{$row['id_client']}'>{$row['nom_complet']}</option>";
+                        }
+                    } else {
+                        echo "<option value=''>Aucun client trouvé</option>";
+                    }
+                    ?>
+                </select>
+            </div>
 
-      <!-- Sélection de l'activité -->
-      <div>
-        <label for="activite_id" class="block text-gray-600 font-medium">Nom de l'activité</label>
-        <select 
-          id="activite_id" 
-          name="activite_id" 
-          class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          required>
-          <option value="" disabled selected>Choisissez une activité</option>
-          <option value="101">Activité 101</option>
-          <option value="102">Activité 102</option>
-          <option value="103">Activité 103</option>
-        </select>
-      </div>
+            <!-- Sélection de l'activité -->
+            <div>
+                <label for="activite" class="block text-sm font-medium text-gray-700">Activité :</label>
+                <select name="activite" id="activite" required class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Sélectionnez une activité</option>
+                    <?php
+                    if ($result_activites->num_rows > 0) {
+                        while ($row = $result_activites->fetch_assoc()) {
+                            echo "<option value='{$row['id_activite']}'>{$row['titre']}</option>";
+                        }
+                    } else {
+                        echo "<option value=''>Aucune activité trouvée</option>";
+                    }
+                    ?>
+                </select>
+            </div>
 
-      <!-- Date de réservation -->
-      <div>
-        <label for="date_reservation" class="block text-gray-600 font-medium">Date de réservation</label>
-        <input 
-          type="date" 
-          id="date_reservation" 
-          name="date_reservation" 
-          class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          required>
-      </div>
+            <!-- Statut -->
+            <div>
+                <label for="statut" class="block text-sm font-medium text-gray-700">Statut :</label>
+                <select name="statut" id="statut" required class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="En attente">En attente</option>
+                    <option value="Confirmee">Confirmée</option>
+                    <option value="Annulee">Annulée</option>
+                </select>
+            </div>
 
-      <!-- Statut de la réservation -->
-      <div>
-        <label for="status" class="block text-gray-600 font-medium">Statut</label>
-        <select 
-          id="status" 
-          name="status" 
-          class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          required>
-          <option value="" disabled selected>Choisissez un statut</option>
-          <option value="confirmer">Confirmé</option>
-          <option value="en_attente">En attente</option>
-          <option value="annule">Annulé</option>
-        </select>
-      </div>
+            <!-- Mode de paiement -->
+            <div>
+                <label for="paiement" class="block text-sm font-medium text-gray-700">Mode de paiement :</label>
+                <select name="paiement" id="paiement" required class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="Carte bancaire">Carte bancaire</option>
+                    <option value="Espèces">Espèces</option>
+                    <option value="Chèque">Chèque</option>
+                </select>
+            </div>
 
-      <!-- Bouton de soumission -->
-      <div>
-        <button 
-          type="submit" 
-          class="w-full bg-blue-500 text-white font-medium py-2 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-400">
-          Ajouter la réservation
-        </button>
-      </div>
-      
-    </form>
-  </div>
+            <!-- Bouton de soumission -->
+            <div>
+                <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Soumettre
+                </button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
+
+<?php
+$conn->close();
+?>

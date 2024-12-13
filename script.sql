@@ -40,23 +40,23 @@ CREATE TABLE reservation (
 INSERT INTO client (nom, prenom, email, telephone, adresse, date_naissance)
 VALUES 
     ('Hanane', 'Oubaha', 'hanane@gmail.com', '0632114578', '168 BD SAFAA', '2002-10-31'),
-    ('Hicham', 'Oubaha', 'hicham@gmail.com', '0632114560', '168 BD SAFAA', '2000-11-01');
-    ('Abdellatif', 'Hissoune', 'hissoun@gmail.com', '0632114544', '168 BD SAFAA', '2005-4-08');
-    ('latifa', 'bouhafra', 'laty@gmail.com', '0632114544', '168 BD SAFAA', '2002-4-28');
+    ('Hicham', 'Oubaha', 'hicham@gmail.com', '0632114560', '168 BD SAFAA', '2000-11-01'),
+    ('Abdellatif', 'Hissoune', 'hissoun@gmail.com', '0632114544', '168 BD SAFAA', '2005-4-08'),
+    ('latifa', 'bouhafra', 'laty@gmail.com', '0632114544', '168 BD SAFAA', '2002-4-28'),
     ('meriem', 'masni', 'meriem@gmail.com', '0632114896', '168 BD SAFAA', '2002-3-08');
 
 -- Insertion des données dans le tableau activite
 INSERT INTO activite (titre, description, destination, prix, date_debut, date_fin, places_disponibles)
 VALUES 
     ('surf', 'sortie au plage pour surf', 'Taghazout', 200, '2024-12-10', '2024-12-11', 10),
-    ('karting', 'organisation competition de karting', 'AGADIR BEY', 250, '2024-12-15', '2024-12-16', 16);
+    ('karting', 'organisation competition de karting', 'AGADIR BEY', 250, '2024-12-15', '2024-12-16', 16),
     ('cooking', 'organisation competition de cuisine', 'kitchen', 100, '2024-12-16', '2024-12-18', 20);
 
 -- Insertion des données dans le tableau reservation
 INSERT INTO reservation (id_client, id_activite, date_reservation, statut)
 VALUES 
     (1, 1, '2024-12-10 10:00:00', 'Confirmee'),
-    (2, 2, '2024-12-15 14:00:00', 'En attente');
+    (2, 2, '2024-12-15 14:00:00', 'En attente'),
     (3, 3, '2024-12-15 15:00:00', 'En attente'); 
 -- Suppression d'une réservation
 DELETE FROM reservation WHERE id_reservation = 1;
