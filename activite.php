@@ -7,7 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+   <!-- Navbar -->
+   <nav class="bg-indigo-600 text-white shadow-lg fixed w-full top-0 z-10">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <ul class="flex space-x-4">
+        <li><a href="index.php" class="hover:text-indigo-200">Formulaire d'inscription</a></li>
+        <li><a href="activite.php" class="hover:text-indigo-200">Formulaire d'activités</a></li>
+        <li><a href="reservation.php" class="hover:text-indigo-200">Formulaire de réservations</a></li>
+        <li><a href="affichage.php" class="hover:text-indigo-200">affichage des données</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- form  -->
+  <div class="bg-white p-6 mt-16 rounded-lg shadow-lg w-full max-w-md">
     <h1 class="text-2xl font-bold text-gray-700 text-center mb-6">Créer une activité</h1>
     <form action="activiteformule.php" method="POST" class="space-y-4">
       

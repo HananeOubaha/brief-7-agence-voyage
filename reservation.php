@@ -18,7 +18,19 @@ $result_activites = $conn->query($sql_activites);
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-    <div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+     <!-- Navbar -->
+     <nav class="bg-indigo-600 text-white shadow-lg fixed w-full top-0 z-10">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <ul class="flex space-x-4">
+        <li><a href="index.php" class="hover:text-indigo-200">Formulaire d'inscription</a></li>
+        <li><a href="activite.php" class="hover:text-indigo-200">Formulaire d'activités</a></li>
+        <li><a href="reservation.php" class="hover:text-indigo-200">Formulaire de réservations</a></li>
+        <li><a href="affichage.php" class="hover:text-indigo-200">affichage des données</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- form -->
+    <div class="max-w-2xl mx-auto mt-16 p-6 bg-white rounded-lg shadow-md">
         <h1 class="text-2xl font-bold text-gray-800 mb-6">Mise à jour du formulaire</h1>
         <form action="reservationformule.php" method="POST" class="space-y-6">
             <!-- Sélection du client -->
@@ -53,6 +65,11 @@ $result_activites = $conn->query($sql_activites);
                     }
                     ?>
                 </select>
+            </div>
+             <!-- Date de réservation -->
+             <div>
+                <label for="date_reservation" class="block text-sm font-medium text-gray-700">Date de réservation :</label>
+                <input type="date" id="date_reservation" name="date_reservation" required class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
 
             <!-- Statut -->

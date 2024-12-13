@@ -7,6 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="bg-indigo-600 text-white shadow-lg fixed w-full top-0 z-10">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <ul class="flex space-x-4">
+        <li><a href="index.php" class="hover:text-indigo-200">Formulaire d'inscription</a></li>
+        <li><a href="activite.php" class="hover:text-indigo-200">Formulaire d'activités</a></li>
+        <li><a href="reservation.php" class="hover:text-indigo-200">Formulaire de réservations</a></li>
+        <li><a href="affichage.php" class="hover:text-indigo-200">affichage des données</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- formulaire -->
   <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
     <h1 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Formulaire d'inscription</h1>
     <!-- action c'est pour envoyer data du formulaire a  ce fichier clientformule.php-->
