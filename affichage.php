@@ -28,13 +28,13 @@ if ($result_tables->num_rows > 0) {
 </head>
 <body class="bg-gray-100">
      <!-- Navbar -->
-     <nav class="bg-indigo-600 text-white shadow-lg fixed w-full top-0 z-10">
+     <nav class="bg-red-400 text-white shadow-lg fixed w-full top-0 z-10">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <ul class="flex space-x-4">
-        <li><a href="index.php" class="hover:text-indigo-200">Formulaire d'inscription</a></li>
-        <li><a href="activite.php" class="hover:text-indigo-200">Formulaire d'activités</a></li>
-        <li><a href="reservation.php" class="hover:text-indigo-200">Formulaire de réservations</a></li>
-        <li><a href="affichage.php" class="hover:text-indigo-200">affichage des données</a></li>
+        <li><a href="index.php" class="hover:text-red-500">Formulaire d'inscription</a></li>
+        <li><a href="activite.php" class="hover:text-red-500">Formulaire d'activités</a></li>
+        <li><a href="reservation.php" class="hover:text-red-500">Formulaire de réservations</a></li>
+        <li><a href="affichage.php" class="hover:text-red-500">affichage des données</a></li>
       </ul>
     </div>
   </nav>
@@ -47,7 +47,7 @@ if ($result_tables->num_rows > 0) {
                 <h2 class="text-xl font-semibold text-gray-700 mb-4">Table : <?= htmlspecialchars($table) ?></h2>
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200 bg-white">
-                        <thead class="bg-gray-50">
+                        <thead class="bg-red-200">
                             <?php
                             // Récupération des colonnes
                             $columns = [];

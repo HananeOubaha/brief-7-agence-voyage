@@ -4,13 +4,13 @@ include('db.php');
 // Récupération des données du formulaire
 $id_client = $_POST['client'];
 $id_activite = $_POST['activite'];
+$date_reservation = $_POST['date_reservation'];
 $statut = $_POST['statut'];
 $mode_paiement = $_POST['paiement'];
 
 // Insertion dans la table reservation
-$sql = "INSERT INTO reservation (id_client, id_activite, statut, mode_paiement) 
-        VALUES ('$id_client', '$id_activite', '$statut', '$mode_paiement')";
-
+$sql = "INSERT INTO reservation (id_client, id_activite, date_reservation, statut, mode_paiement) 
+        VALUES ('$id_client', '$id_activite', '$date_reservation','$statut', '$mode_paiement')";
 if ($conn->query($sql) === TRUE) {
     echo "Réservation ajoutée avec succès.";
 } else {

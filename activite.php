@@ -8,13 +8,13 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
    <!-- Navbar -->
-   <nav class="bg-indigo-600 text-white shadow-lg fixed w-full top-0 z-10">
+   <nav class="bg-red-400 text-white shadow-lg fixed w-full top-0 z-10">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <ul class="flex space-x-4">
-        <li><a href="index.php" class="hover:text-indigo-200">Formulaire d'inscription</a></li>
-        <li><a href="activite.php" class="hover:text-indigo-200">Formulaire d'activités</a></li>
-        <li><a href="reservation.php" class="hover:text-indigo-200">Formulaire de réservations</a></li>
-        <li><a href="affichage.php" class="hover:text-indigo-200">affichage des données</a></li>
+        <li><a href="index.php" class="hover:text-black">Formulaire d'inscription</a></li>
+        <li><a href="activite.php" class="hover:text-black">Formulaire d'activités</a></li>
+        <li><a href="reservation.php" class="hover:text-black">Formulaire de réservations</a></li>
+        <li><a href="affichage.php" class="hover:text-black">affichage des données</a></li>
       </ul>
     </div>
   </nav>
@@ -111,7 +111,7 @@
       <div>
         <button 
           type="submit" 
-          class="w-full bg-blue-500 text-white font-medium py-2 rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-400">
+          class="w-full bg-red-400 text-white font-medium py-2 rounded-lg hover:bg-red-500 ">
           Ajouter l'activité
         </button>
       </div>
